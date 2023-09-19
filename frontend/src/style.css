@@ -1,0 +1,16 @@
+.loginPage{
+    background-image: url(./assets/lock.jpg);
+    background:linear-gradient(90deg,rgba(0, 0, 0, 0.471),rgba(17, 17, 17, 0.62)),url(./assets/lock.jpg);
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-position: center;
+}
+.loginForm{
+    color:#fff;
+    background-color: rgba(0, 0, 77, 0.349);
+}
+.employee-image{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+}
