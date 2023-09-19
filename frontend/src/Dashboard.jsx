@@ -50,11 +50,7 @@ const Dashboard = () => {
                         <Link to="/employee" class="nav-link px-0 align-middle text-white">
                             <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Manage Employees</span></Link>
                     </li>
-                    <li>
-                        <Link to="/profile" class="nav-link px-0 align-middle text-white">
-                            <i class="fs-4 bi-person"></i> <span class="ms-1 d-none d-sm-inline">Profile</span></Link>
-                    </li>
-              
+                          
                     <li onClick={handleLogout}>
                         <Link to="/logout" class="nav-link px-0 align-middle text-white">
                             <i class="fs-4 bi-power"></i> <span class="ms-1 d-none d-sm-inline">Log Out</span> </Link>
@@ -62,7 +58,7 @@ const Dashboard = () => {
                 </ul>            
             </div>
         </div>
-        <div class="col p-0 m-0">
+        <div class="col p-0 m-0 ">
            <div className='p-2 d-flex justify-content-center shadow'>
             <h4>Employee Management System</h4>
            </div>

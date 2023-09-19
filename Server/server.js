@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const multer = require("multer")
 const path = require("path")
-const empModel = require(`./model/data`)
+const empModel = require(`./model/employee`)
 const adminModel = require(`./model/admin`)
 
 const app = express();
@@ -103,9 +103,9 @@ app.get(`/dashboard`, verifyUser, (req,res) => {
 
 app.get(`/admincount`, (req, res) => {
     adminModel.find()
-        .then((result, err) => {
+        .then((result,err) => {
             if (err) return res.json({ Error: `Error in running query` })
-            return res.json(result.length)
+            return res.json({Status:`Success`,Result:result})
         })
         .catch(err => console.log(err))
 })
@@ -153,15 +153,22 @@ app.get(`/get/:id`, (req, res) => {
             }
             return res.json({ Status: `Success`, Result: result })
         })
+        .catch(err=>console.log(err))
 })
 app.put(`/update/:id`, (req, res) => {
     const id = req.params.id;
-    const sql = `update employee set salary = ? where id =?`
-    con.query(sql, [req.body.salary, id], (err, result) => {
+    empModel.findByIdAndUpdate(id,{
+        name:req.body.name,
+        email:req.body.email,
+        salary:req.body.salary,
+        address:req.body.address
+    }) 
+    .then((result,err)=> {
         if (err) {
             return res.json({ Error: `Error in updating query` })
         }
-        return res.json({ Status: `Success` })
+
+        return res.json({ Status:`Success`})
     })
 })
 app.delete(`/delete/:id`, (req, res) => {
@@ -189,7 +196,6 @@ app.get(`/getEmployee`, (req, res) => {
         .catch(err => console.log(err))
 })
 app.post(`/create`, upload.single("image"), (req, res) => {
-    console.log(req.body)
 
     bcrypt.hash(req.body.password.toString(), 10, (err, hash) => {
         if (err) {

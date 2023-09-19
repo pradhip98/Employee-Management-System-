@@ -14,12 +14,14 @@ function EmployeeEdit() {
 
   const {id} = useParams();
   useEffect(()=>{
-    axios.get('http://localhost:9000/get/'+id)
+    axios.get('http://localhost:5000/get/'+id)
     .then(res =>{
-        setData({...data,name:res.data.Result[0].name,
-            email:res.data.Result[0].email,
-            salary:res.data.Result[0].salary,
-            address:res.data.Result[0].address,
+      console.log(res)
+        setData({...data,
+            name:res.data.Result.name,
+            email:res.data.Result.email,
+            salary:res.data.Result.salary,
+            address:res.data.Result.address,
         })
     })
   .catch(err=>console.log(err));
@@ -27,8 +29,7 @@ function EmployeeEdit() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .put("http://localhost:5000/update/"+id,data)
+    axios.put("http://localhost:5000/update/"+id,data)
       .then((res) => {
         if(res.data.Status === `Success`){
             navigate(`/employee`);

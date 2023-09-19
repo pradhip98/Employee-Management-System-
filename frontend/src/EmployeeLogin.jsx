@@ -40,6 +40,7 @@ function EmployeeLogin(){
             <input
               type="email"
               className="form-control mt-1 rounded-0"
+              placeholder="Enter Your Email ID"
               name="email" onChange={e => setValue({...value,email:e.target.value})}
             />
           </div>
@@ -48,6 +49,7 @@ function EmployeeLogin(){
             <input
               type="password"
               className="form-control mt-1 rounded-0"
+              placeholder="Enter your Password"
               name="password" onChange={e => setValue({...value,password:e.target.value})}
             />
           </div>
