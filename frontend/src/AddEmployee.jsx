@@ -47,7 +47,7 @@ function AddEmployee() {
         </div>
         <div className="col-12">
             <label htmlFor="inputEmail4" className="form-label">Email</label>
-            <input type="text" className="form-control" id='inputEmail4' 
+            <input type="email" className="form-control" id='inputEmail4' 
             onChange={e=>setData({...data,email:e.target.value})}/>
         </div>
         <div className="col-12">
@@ -57,7 +57,7 @@ function AddEmployee() {
         </div>
         <div className="col-12">
             <label htmlFor="inputSalary" className="form-label">Salary</label>
-            <input type="text" className="form-control" id='inputSalary' 
+            <input type="number" className="form-control" id='inputSalary' 
             onChange={e=>setData({...data,salary:e.target.value})}/>
         </div>
         <div className="col-12">

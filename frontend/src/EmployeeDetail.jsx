@@ -26,7 +26,7 @@ function EmployeeDetail() {
     <h3>{employee.salary}</h3>
     </div>
     <div>
-      <button className="btn btn-primary me-4">Edit</button>
+      <button className="btn btn-primary me-4 disabled">Edit</button>
       <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
     </div>
    </div>
