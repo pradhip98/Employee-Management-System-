@@ -190,7 +190,6 @@ app.get(`/getEmployee`, (req, res) => {
             if (err) {
                 return res.json({ Error: `Get employee error in mongoose` })
             }
-            console.log(result)
             return res.json({ Status: `Success`, Result: result })
         })
         .catch(err => console.log(err))
